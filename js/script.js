@@ -10,6 +10,7 @@ const lightPRed = document.querySelector('.lightPRed');
 const lightPGreen = document.querySelector('.lightPGreen');
 
 const phases = document.querySelector(".phases");
+const msg = document.querySelector('.pedestrian');
 
 const btn = document.querySelector('.btn');
 let control = false;
@@ -65,6 +66,8 @@ const toggleLights = () => {
 
         control = false;
         btn.disabled = false;
+        msg.classList.remove('show');
+        msg.classList.add('hidde');
 
         lightARed.classList.remove('visible');
         lightARed.classList.add('hidden');
@@ -88,6 +91,8 @@ const toggleLights = () => {
         btn.addEventListener('click', () => {
             control = true;
             btn.disabled = true;
+            msg.classList.remove('hidde');
+            msg.classList.add('show');
         });
         
         setTimeout(() => {
@@ -99,14 +104,6 @@ const toggleLights = () => {
             lightAYellow.classList.add('visible');
             lightAGreen.classList.remove('visible');
             lightAGreen.classList.add('hidden');
-
-            if (!control) {
-                
-                btn.addEventListener('click', () => {
-                    control = true;
-                    btn.disabled = true;
-                });
-            }
             
             setTimeout(() => {
                 timer(1);
@@ -117,13 +114,6 @@ const toggleLights = () => {
                 lightAYellow.classList.add('hidden');
                 lightAGreen.classList.remove('visible');
                 lightAGreen.classList.add('hidden');
-                
-                if (!control) {
-                    btn.addEventListener('click', () => {
-                        control = true;
-                        btn.disabled = true;
-                    });
-                }
                 
                 if (control) {
                     
@@ -163,11 +153,16 @@ const toggleLights = () => {
 
                                 control = false;
                                 btn.disabled = false;
+                                msg.classList.remove('show');
+                                msg.classList.add('hidde');
 
                                 if (!control) {
+                                    
                                     btn.addEventListener('click', () => {
                                         control = true;
                                         btn.disabled = true;
+                                        msg.classList.remove('hidde');
+                                        msg.classList.add('show');
                                     });
                                 }
             
@@ -187,13 +182,6 @@ const toggleLights = () => {
                                     lightBYellow.classList.add('visible');
                                     lightBGreen.classList.remove('visible');
                                     lightBGreen.classList.add('hidden');
-
-                                    if (!control) {
-                                        btn.addEventListener('click', () => {
-                                            control = true;
-                                            btn.disabled = true;
-                                        });
-                                    }
             
                                     setTimeout(() => {
                                         timer(1);
@@ -216,6 +204,8 @@ const toggleLights = () => {
                                             btn.addEventListener('click', () => {
                                                 control = true;
                                                 btn.disabled = true;
+                                                msg.classList.remove('hidde');
+                                                msg.classList.add('show');
                                             });
                                         }
 
@@ -271,6 +261,13 @@ const toggleLights = () => {
                         lightPRed.classList.add('visible');
                         lightPGreen.classList.remove('visible');
                         lightPGreen.classList.add('hidden');
+                        
+                        btn.addEventListener('click', () => {
+                            control = true;
+                            btn.disabled = true;
+                            msg.classList.remove('hidde');
+                            msg.classList.add('show');
+                        });
     
                         setTimeout(() => {
                             timer(2);
@@ -306,6 +303,16 @@ const toggleLights = () => {
                                 lightBGreen.classList.remove('visible');
                                 lightBGreen.classList.add('hidden');
 
+                                if (!control) {
+                                    btn.addEventListener('click', () => {
+                                        control = true;
+                                        btn.disabled = true;
+                                        msg.classList.remove('hidde');
+                                        msg.classList.add('show');
+                                    });
+                                }
+
+                                
                                 if (control) {
                                     setTimeout(() => {
                                         timer(5);
@@ -340,3 +347,9 @@ const toggleLights = () => {
     }, 2000); // PHASE 6
 }    
 toggleLights();
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        btn.click();
+    }
+})

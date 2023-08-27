@@ -11,6 +11,8 @@ body {
     position: relative;
     background-repeat: no-repeat;
     height: 100vw;
+    font-family: arial;
+
 }
 
 main{
@@ -58,12 +60,11 @@ main{
     position: absolute;
     top: 2.2vw;
     left: 2vw;
-    font-size: max(17px, 1.8vw);
+    font-size: max(10px, 1.8vw);
     background: #59eec9;
     color: #114372;
     padding: .5rem 1rem;
     border-radius: 1vw;
-    font-family: arial;
     font-weight: 500;
 }
 
@@ -75,7 +76,8 @@ main{
     color: #fff;
     font-weight: bold;
     box-shadow: 3px 5px 6px rgba(0,0,0,0.5);
-    top: 47vw;
+    top: 46vw;
+    font-size: max(10px, 1.8vw);
     left: 62vw;
     cursor: pointer;
 }
@@ -93,7 +95,7 @@ main{
 }
 
 .btn:disabled{
-    background: #310101;
+    background: #d3b3b3;
     box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
     cursor: auto;
 }
@@ -299,4 +301,45 @@ main{
     100%{
         transform: translateX(100vw);
     }
+}
+
+.pedestrian{
+    position: absolute;
+    top: 2vw;
+    width: 100%;
+    background: #02ee02;
+    padding: 1rem;
+    font-size: max(9px, 1.2vw);
+    color: #114372;
+    padding: .5rem 1rem;
+    border-radius: 1vw;
+    font-weight: 500;
+}
+
+.show{
+    left: 54vw;
+    transition: 1s ease-in-out;
+
+}
+
+.hidde{
+    left: 70vw;
+    transition: 1s ease-in-out;
+}
+
+.nomeRua{
+    position: absolute;
+    font-size: max(10px, 1.5vw);
+    background: #0000003a;
+    padding: 0.3vw 1rem;
+    border-radius: 1vw;
+}
+
+.r1{
+    top: 19vw;
+}
+
+.r2{
+    top: 48vw;
+    left: 21.5vw;
 }
